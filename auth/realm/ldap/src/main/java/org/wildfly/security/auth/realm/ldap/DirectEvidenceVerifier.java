@@ -102,8 +102,6 @@ class DirectEvidenceVerifier implements EvidenceVerifier {
                         log.debugf(e, "Credential direct evidence verification failed. DN: [%s]", distinguishedName);
                     } catch (NamingException | URISyntaxException e) {
                         throw log.directLdapVerificationFailed(distinguishedName, url, e);
-                    } finally {
-                        ((PasswordGuessEvidence) evidence).destroy();
                     }
                 }
 
